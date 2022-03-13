@@ -1,1 +1,17 @@
-<p>devices works!</p>
+<div class="header">   <h3 class="header-h3">Devices groups</h3></div>
+<div class="action-panel">
+    <div class="search"><input type="search" placeholder="Search" /><i class="fas fa-search search"></i></div>
+</div>
+<div class="content">
+    
+    <ul>
+        <li  [ngClass]="{ selected: selected === group.dataUrl }" *ngFor="let group of groups; let i = index">
+            <button class="group-wrpper" (click)="selectGroup(group.dataUrl)">
+                <h4 class="title">{{group.title}}</h4>
+                <span class="total">({{group.total}})</span><br/>
+                <span *ngIf= "(group.id !== '1')" class="url">{{group.title}} area</span>
+                <span *ngIf= "(group.id === '1')" class="url">{{group.title}}</span>
+            </button>
+        </li>
+    </ul>
+</div>

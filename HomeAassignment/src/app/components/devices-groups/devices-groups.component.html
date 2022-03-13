@@ -1,1 +1,75 @@
-<p>devices-groups works!</p>
+<div class="header">
+  <div class="toggle-btn-wrapper">
+    <button
+      (click)="toggleLayout('card')"
+      [ngClass]="{ active_btn: layout === 'card' }"
+    >
+      Card view
+    </button>
+    <button
+      (click)="toggleLayout('row')"
+      [ngClass]="{ active_btn: layout === 'row' }"
+    >
+      Row view
+    </button>
+  </div>
+  <div class="bottom-btns-wraper">
+    <div>
+      <button><i class="fas fa-user-alt user"></i>Acknowledge</button>
+      <button><i class="fas fa-check-square clear"></i>Clear</button>
+      <button><i class="fas fa-trash-alt trash"></i>Clear & remove</button>
+      <button>
+        <i class="fas fa-cog settings"></i><i class="fas fa-caret-down"></i>
+      </button>
+    </div>
+    <div class="time">12:45:02</div>
+  </div>
+</div>
+<div class="action-panel">
+  <div class="actions-btns-wraper">
+    <div>
+      <div class="three-group">
+        <button><i class="fas fa-caret-right"></i>Show Files</button>
+        <button>
+          <i class="fas fa-check-square reachable"></i>Filter active
+        </button>
+        <button>Presets<i class="fas fa-caret-down"></i></button>
+      </div>
+      <span>Sort by:</span>
+      <button>Last Modify<i class="fas fa-caret-down"></i></button>
+    </div>
+    <div class="search"><input type="search" placeholder="Quick Filter" /><i class="fas fa-search search"></i></div>
+  </div>
+</div>
+<div class="content">
+  <ul class="ul-row-layout" *ngIf="layout === 'row'">
+    <li  class="row-layout" *ngFor="let device of devices">
+
+      <div class="device-wrapper">
+        <span class="ack">{{ device.Acknowledged }}</span>
+        <span class="sev" style="color:#6a976a" *ngIf="device.Severity === '1'"><i class="fas fa-check-square reachable"></i></span>
+        <span class="sev" style="color:#b07f36" *ngIf="device.Severity === '2'"><i class="fas fa-exclamation-triangle major"></i></span>
+        <span class="sev" style="color:#a00c0c" *ngIf="device.Severity === '3'"><i class="fas fa-times-circle critical"></i></span>
+        <span class="loc">{{ device.Location }}</span>
+        <span class="tit">{{ device.Title }}</span>
+      </div>
+
+    </li>
+    </ul>
+    <ul class="ul-card-layout" *ngIf="layout === 'card'">
+    <li  class="card-layout" *ngFor="let device of devices">
+
+      <div class="device-wrapper">
+       <div class="card-header">
+        <span class="sev" style="color:#6a976a" *ngIf="device.Severity === '1'"><i class="fas fa-check-square reachable"></i></span>
+        <span class="sev" style="color:#b07f36" *ngIf="device.Severity === '2'"><i class="fas fa-exclamation-triangle major"></i></span>
+        <span class="sev" style="color:#a00c0c" *ngIf="device.Severity === '3'"><i class="fas fa-times-circle critical"></i></span>
+        <span class="loc">{{ device.Location }}</span>
+       </div>
+        
+        <span class="tit">{{ device.Title }}</span>
+      </div>
+
+    </li>
+  </ul>
+</div>

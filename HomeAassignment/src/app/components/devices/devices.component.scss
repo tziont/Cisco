@@ -1,0 +1,105 @@
+:host{
+    display: block;
+    flex: 2;
+    box-sizing: border-box;
+
+}
+.action-panel{
+    box-sizing: border-box;
+    padding: 5px;
+    justify-content: end;
+    display:flex;
+    align-items: center;
+    height:45px;
+    background: gray;
+    background-image: url('../../../assets/actions-header.jpg');
+    background-repeat: repeat-x;
+    input {
+        border-radius: 10px;
+        border: none;
+        border-top: 2px solid #c5cdcf;
+        &::placeholder{
+            color:#c5cdcf;
+        }
+      }
+      .search {
+        position: relative;
+        .fas {
+          position: absolute;
+          color: #ccced0;
+          font-size: 14px;
+          right: 8px;
+          top: 4px;
+        }
+      }
+      
+      button {
+        cursor: pointer;
+        background-image: url("../../../assets/gray_btn_bg.jpg");
+        border: 1px solid #ccced0;
+        border-radius: 3px;
+        .fas {
+          margin: 0 5px;
+          color: #999;
+        }
+      }
+}
+.header{
+    box-sizing: border-box;
+    text-align: center;
+    color:#355160;
+    height: 70px;
+    background-image: linear-gradient(#b3d1e1, #8ea7b8);
+    border-radius: 3px 3px 0 0 ;
+    .header-h3{
+        margin:0;
+        padding-top:10px;
+        font-size: 16px;
+    }
+}
+.content{
+    box-sizing: border-box;
+    padding:10px;
+    height: calc(100vh - 145px);
+    overflow-y : auto;
+    background: #fff;
+    box-sizing: border-box;
+    ul{ 
+        padding:0;
+        margin:0;
+        list-style: none;
+        li{
+            
+            &.selected{
+                button{
+                    background-image: linear-gradient(#edf4f8, #e8f0f7);
+                    border:1px solid #b4c4c9;
+                    border-radius:4px;
+                }
+            }
+            button{
+                text-align: left;
+                cursor: pointer;
+                background: none;
+                border:none;
+                
+                padding:5px 10px;
+            }
+            margin:10px 0;
+            text-decoration: none;
+            .title{
+                display:inline-block;
+                margin:0;
+            }
+            .total{
+                display: inline-block;
+                margin-left:5px;
+                color:#7a99aa;
+            }
+            .url{
+                color:rgb(110, 120, 128);
+            }
+
+        }
+    }
+}

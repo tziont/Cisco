@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Device } from 'src/app/types/device';
 
 @Component({
   selector: 'app-devices-groups',
@@ -6,10 +7,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./devices-groups.component.scss']
 })
 export class DevicesGroupsComponent implements OnInit {
-
+  @Input()
+  devices:Device[];
+  layout:string = 'row'
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  toggleLayout(layout:string){
+ this.layout = layout;
   }
 
 }
